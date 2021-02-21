@@ -22,7 +22,7 @@ export class EditServerComponent implements OnInit {
 
     this.activatedRoute.queryParams.subscribe(
       (queryParams: Params) => {
-          this.allowEdit = queryParams['allowEdit'] === 1 ? true : false
+        this.allowEdit = queryParams['allowEdit'] === 1 ? true : false
       }
     )
 

@@ -21,15 +21,14 @@ export class ServerComponent implements OnInit {
   ngOnInit() {
     
     this.server = this.serversService.getServer(this.id_-1);
-    console.log("fuck this shit" + this.server)
     this.activatedRoute.params.subscribe(
       (params: Params) => {
-        this.server = this.serversService.getServer(params['id']-1);
+        this.server = this.serversService.getServer(+params['id']-1);
       }
     )
   }
   onEditServers() {
-    this.route.navigate(['edit'],{relativeTo:this.activatedRoute})
+    this.route.navigate(['edit'],{relativeTo:this.activatedRoute,queryParamsHandling:'preserve'})
   }
 
 }
