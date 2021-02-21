@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private route:Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private route:Router) { }
 
   ngOnInit() {
   }
