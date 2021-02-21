@@ -28,12 +28,8 @@ export class ServerComponent implements OnInit {
       }
     )
   }
-  onLoadServers() {
-    this.route.navigate(['/servers'], { relativeTo: this.activatedRoute })
-
-    
-    // this.route.navigate(['servers'], { relativeTo: this.activatedRoute })
-    // NOW There is the difference between  "servers" and "/servers" as we have added the { relativeTo: this.activatedRoute }
+  onEditServers() {
+    this.route.navigate(['edit'],{relativeTo:this.activatedRoute})
   }
 
 }
