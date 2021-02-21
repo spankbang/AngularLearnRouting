@@ -13,26 +13,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  onLoadServers() {
-
-
-    // this.route.navigate(['servers'])
-
-
-    // ====>>>>> 
-    //  this.route.navigate(['servers'])  and this.route.navigate(['/servers']) these two weill reflect same behaviour 
-    //  because navigate() method does'nt know that where is absolute path is ? and hence both i.e. servers and /servers
-    //  won't give any error.
-    //  BUT ,
-
-
-
-    this.route.navigate(['servers'] )
-
-
-
-
-
-
+  onLoadServer(id:number) {
+    this.route.navigate(
+      ['servers', 5, 'edit'],
+      {
+        queryParams: { allowEdit: '1' },
+        fragment:'loading'
+      }
+    )
   }
 }
