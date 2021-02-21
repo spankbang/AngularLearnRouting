@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { ServersService } from '../servers.service';
 
@@ -9,7 +9,8 @@ import { ServersService } from '../servers.service';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  server: {id: number, name: string, status: string};
+  server: { id: number, name: string, status: string };
+  id_ = 0
 
   constructor(
     private serversService: ServersService,
@@ -18,7 +19,14 @@ export class ServerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    
+    this.server = this.serversService.getServer(this.id_-1);
+    console.log("fuck this shit" + this.server)
+    this.activatedRoute.params.subscribe(
+      (params: Params) => {
+        this.server = this.serversService.getServer(params['id']-1);
+      }
+    )
   }
   onLoadServers() {
     this.route.navigate(['/servers'], { relativeTo: this.activatedRoute })
