@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { AuthSerive } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { canDeactivateGuard } from './servers/edit-server/can-deactivate.service';
+import { ErrorFileComponent } from './error-file/error-file.component';
 
 const appRoutes: Routes = [
     
@@ -37,7 +38,9 @@ const appRoutes: Routes = [
     },
 
     {
-        path: "not-found", component: PageNotFoundComponent
+        // path: "not-found", component: PageNotFoundComponent
+        path: "not-found", component: ErrorFileComponent, data: { message: "FUCK Page not Found !"}
+
     }
 
 
