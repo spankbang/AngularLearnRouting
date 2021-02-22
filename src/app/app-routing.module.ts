@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NgModule } from '@angular/core';
 import { AuthSerive } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { canDeactivateGuard } from './servers/edit-server/can-deactivate.service';
 
 const appRoutes: Routes = [
     
@@ -20,13 +21,13 @@ const appRoutes: Routes = [
         ]
     },
     {
-        path: "servers",
+        path: "servers", 
         // canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
+        // canActivateChild: [AuthGuard],
         component: ServersComponent,
         children: [
             { path: ":id", component: ServerComponent },
-            { path: ":id/edit", component: EditServerComponent },
+            { path: ":id/edit", component: EditServerComponent,canDeactivate:[canDeactivateGuard] },
         ]
 
 
